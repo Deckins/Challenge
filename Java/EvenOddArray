@@ -1,0 +1,23 @@
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        int[] even = Arrays.stream(A).filter(a -> a % 2 ==0).toArray();
+        int[] odd = Arrays.stream(A).filter(a -> a % 2 == 1).toArray();
+        // List<Integer> evenList = Arrays.asList(even);
+        List<Integer> evenList = new ArrayList<Integer>();
+        for(int i = 0; i<even.length; i++){
+            evenList.add(even[i]);
+        }
+        for(int i = 0; i< odd.length; i++){
+            evenList.add(odd[i]);
+        }
+        int[] evenOdd = new int[A.length];
+        int i =0;
+        for(int num: evenList){
+            System.out.println(num);
+           
+            evenOdd[i] = num;
+            i++;
+        }
+        return evenOdd;
+    }
+}
