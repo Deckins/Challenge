@@ -1,0 +1,12 @@
+/**
+ * https://leetcode.com/problems/sort-array-by-parity/
+ * 
+ */
+var sortArrayByParity = function(A) {
+    let even = A.filter(a => a % 2 ==0);
+    let odd = A.filter(a => a % 2 == 1);
+    for(let i = 0; i< odd.length; i++){
+        even.push(odd[i]);
+    }
+    return even;
+};
