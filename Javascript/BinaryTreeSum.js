@@ -25,8 +25,10 @@ var rangeSumBST = function(root,L,R) {
 //         if(root.val >= L && root.val <=R){
 //             sum = root.val + leftSum + rightSum
 //         }
-        sum += (((root.val >= L && root.val <= R) ? root.val : 0) + rangeSumBST(root.left,L,R) + rangeSumBST(root.right,L,R));
+        // sum += (((root.val >= L && root.val <= R) ? root.val : 0) + rangeSumBST(root.left,L,R) + rangeSumBST(root.right,L,R));
         
+        root.val = (root.val >= L && root.val <= R) ? root.val : 0
+        sum = root.val + rangeSumBST(root.left,L,R) + rangeSumBST(root.right,L,R)
         return sum;
     }
 };
