@@ -1,27 +1,26 @@
 //https://leetcode.com/problems/non-decreasing-array/submissions/
 
+//[2,3,3,2,4]
+//Sample Input
+
 class Solution {
     public boolean checkPossibility(int[] nums) {
-        boolean changed = false;
-        int changeCount =0;
-        int distance = 0;
-        for(int i = 0; i< nums.length; i++){
-            for(int j = i; j<nums.length; j++){
-                if(nums[i] > nums[j]){
+        int changeCount = 0;
+        for(int i = 0; i< nums.length-1; i++){
+                if(nums[i] > nums[i + 1]){
                     changeCount++;
-                    distance = j - i;
-                    if(distance >1){
-                        nums[j] = nums[j-1];
-                    } else {
-                        nums[i] = nums[j] - 1;
+                    //Raises the value if previous elements are greater
+                    if(i>0 && nums[i+1] < nums[i-1]){
+                        nums[i+1] = nums[i];
                     }
-                    
-                    changed = true;
+                    //Decreases the value if there are no other greater elements
+                    else {
+                        nums[i] = nums[i+1];
+                    }
                 }
-                if(changed == true && changeCount > 1){
+                if(changeCount > 1){
                     return false;
                 } 
-            }   
         }
         return true;
     }
