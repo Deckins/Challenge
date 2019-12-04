@@ -15,28 +15,32 @@ function xor(array){
     }
 }
 function xorHash(array){
-    let hashMap = {};
+    //hashMap: An array of key-value pairs instead of a Map data structure
+    // let hashMap = [];
+    let myMap = new Map();
     for(let i =0; i<array.length; i++){
-        if(hashMap[array[i]] == null){
-            hashMap[array[i]] = 1
+        if(myMap.get(array[i]) == null){
+           myMap.set(array[i],1)
+            // hashMap[array[i]] = 1
         } else {
-            hashMap[array[i]]++;
+            myMap.set(array[i],myMap.get(array[i])+1)
+            // hashMap[array[i]]++;
         }
     }
-    console.log(hashMap)
-    // for(let i=0;i<hashMap.length;i++){
-    //     if(hashMap[i] === 1){
-    //         console.log(i)
-    //         return i;
-    //     }
-    // }
-    // hashMap.map(hash =>console.log(hash) )
-    for(let [key,value] of Object.entries(hashMap)){
-        
-        if(value ==1){
+    console.log(myMap)
+    for(let [key,value] of myMap){
+        if(value == 1){
             return key;
         }
     }
+    // accessing key and value through Object entires loop
+    // hashMap.map(hash =>console.log(hash) )
+    // for(let [key,value] of Object.entries(hashMap)){
+        
+    //     if(value ==1){
+    //         return key;
+    //     }
+    // }
 }
 // console.log(xor([1,3,2,1,3]));
-console.log(xorHash([1,3,5,1,3]));
+console.log(xorHash([1,3,9,1,3]));
