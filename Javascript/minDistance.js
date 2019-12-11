@@ -48,4 +48,13 @@ var minTimeToVisitAllPoints = function(points) {
     }
      return secCount;
 };
-console.log(minTimeToVisitAllPoints([[1,1],[3,4],[0,-1]]))
+
+function minDist(points){
+    let result = 0;
+    for(let i = 0; i<points.length-1;i++){
+        result+=Math.max(Math.abs(points[i][0]-points[i+1][0]),Math.abs(points[i][1]-points[i+1][1]))
+    }
+     return result;
+}
+console.log(minDist([[1,1],[3,4],[0,-1]]))
+// console.log(minTimeToVisitAllPoints([[1,1],[3,4],[0,-1]]))
