@@ -3,7 +3,7 @@
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
  */
 class InOrder {
-    //Instance variable for global
+    //Instance variable to keep appending towards list recursively
     List<Integer> list = new ArrayList<Integer>();
     public List<Integer> inorderTraversal(TreeNode root) {
         // List<Integer> list = new ArrayList<Integer>();
