@@ -1,4 +1,4 @@
-class Reverse {
+class Solution {
     public int reverse(int x) {
         String rev = "";
         boolean neg = false;
@@ -13,7 +13,7 @@ class Reverse {
             
         }
         if(neg == true){
-            rev = "-" +rev;
+            rev = "-" +rev;U
         }
         while(rev.charAt(0) == 0){
             rev = rev.substring(0,1);
@@ -21,13 +21,11 @@ class Reverse {
        
         System.out.println(neg);
         System.out.println(rev);
-        int reversed = 0;
-        try{
-           reversed = Integer.parseInt(rev); 
-        } catch(Exception e){
-            return 0;
-        }
+        long reversed = Long.parseLong(rev);
+        if(reversed > Integer.MAX_VALUE) return 0;
+        if(reversed < Integer.MIN_VALUE) return 0;
         
-        return reversed;
+        return (int)reversed;
+        
     }
 }
